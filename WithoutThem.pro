@@ -31,7 +31,9 @@ SOURCES += main.cpp\
     pugixml.cpp \
     DayStrategy.cpp \
     Printer.cpp \
-    WorkStation.cpp
+    GenerateWorker.cpp \
+    WorkStation.cpp \
+    WorkerBackground.cpp
 
 HEADERS  += mainwindow.h \
     Factory.h \
@@ -52,7 +54,9 @@ HEADERS  += mainwindow.h \
     EventStrategy.h \
     DayStrategy.h \
     Printer.h \
-    WorkStation.h
+    GenerateWorker.h \
+    WorkStation.h \
+    WorkerBackground.h
 
 CONFIG += c++11
 

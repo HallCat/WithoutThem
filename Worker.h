@@ -5,6 +5,7 @@
 #include <time.h>
 #include <string>
 #include "StatsList.h"
+#include "WorkerBackground.h"
 #include "SkillTypeEnums.h"
 
 using namespace skills;
@@ -19,17 +20,20 @@ public:
     void setWagePerDay(double wage);
     string getName();
     StatsList getStats();
+    void setStatsList(StatsList stats);
     int getMoral();
     void setMoral(int m);
-    //int getAge();
     void levelUp();
     void gainXP(int xp);
 
     int getSkill(skillsType type);
     bool isWorking();
     void setWorking(bool working);
-private:
     void printWorker();
+    void setBackground(WorkerBackground background);
+    WorkerBackground getBackground();
+private:
+    WorkerBackground background;
     bool working;
     int moral;
     skillsType type;
