@@ -3,6 +3,22 @@
 #include "Factory.h"
 
 using namespace skills;
+WorkStation::WorkStation()
+{
+
+    this->product = new Product("N/A", skillsType::NONE, -1, -1, "N/A", -1, -1);
+    numWorkers = 0;
+    maxWorkers = 4;
+    dailyCount = 0;
+    srand(time(0));
+    remainingTime = 0;
+
+    this->timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(addProduct()));
+    working = false;
+}
+
+
 WorkStation::WorkStation(string s)
 {
     this->product = Factory::db.getProduct(s);
@@ -103,7 +119,7 @@ int WorkStation::calcTime()
 
 void WorkStation::makeProduct()
 {
-    if(working)
+    if(working && product->getSkillType() != skillsType::NONE)
     {
         int time = 0;
         if(remainingTime > 0){
@@ -156,6 +172,8 @@ void WorkStation::setWorking(bool working)
 {
     this->working=working;
 }
+
+
 
 
 

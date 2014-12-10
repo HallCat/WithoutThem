@@ -34,6 +34,8 @@ public:
     void addStation(WorkStation* station);
     void removeStation(WorkStation* station);
     void addWorker(Worker* worker);
+
+    void removeWorkerFromAnyStation(string workername);
     void removeWorker(Worker* worker);
     void removeWorker(string workerName);
 
@@ -71,6 +73,9 @@ private:
     int findWorkerByName(vector<Worker*> list, const QString& s);
     int factoryLevel;
     double factoryUpgradeCost;
+
+    void addFloor();
+
     GameScreen* gameScreen;
 public slots:
     void comparingWorkers(const QString& s1, const QString& s2);
@@ -83,6 +88,8 @@ public slots:
     void setWage(double wage);
     void addNewHire(Worker* w);
     void addingOldWorker(const QString& s);
+
+    void addWorkerToStation(int currentWS, string name);
 
     void upgradeFactory();
 private slots:
